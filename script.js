@@ -20,4 +20,12 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+  // var currentTime = dayjs();
+  // $('#currentDay').text(currentTime(format('DD MMMM YYYY hh:mm:ss a')))
 });
+
+setInterval(function(){
+  var currentTime = dayjs();
+  $('#currentDay').text(currentTime.format('DD MMMM YYYY hh:mm a'))
+}, 1000)
+
