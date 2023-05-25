@@ -1,15 +1,11 @@
-var hours = document.querySelectorAll(".time-block");
-console.log(hours[0])
-function whatTime() {
-  for (i = 0; i < hours.length; i++) {
-  var plannerTime = i + 9;
-  if(plannerTime > 12) {
-    plannerTime = plannerTime - 12
-  }
-  console.log(plannerTime)
-}
-}
-whatTime();
+// DEPENDENCIES
+var hours = $(".time-block").toArray();
+console.log(hours)
+
+// DATA / STATE
+var time = dayjs()
+var currentHour = time.format('HH')
+var plannerTimes = [09, 10, 11, 12, 13, 14, 15, 16, 17]
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -27,6 +23,23 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+  function compareTime() {
+    for (i = 0; i < hours.length; i++) {
+      console.log(hours[i])
+      console.log(plannerTimes[i])
+      var hourEl = $(hours[i])
+      if (plannerTimes[i] < currentHour) {
+        console.log("the time is later than " + plannerTimes[i] + ":00")
+        hourEl.addClass('past')
+      } else if (plannerTimes[i] > currentHour) {
+        hourEl.addClass('future')
+      } else if (plannerTimes[i] === currentHour) {
+        hourEl.addClass('present')
+      }
+    }
+  }
+  
+  compareTime();
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -40,7 +53,5 @@ setInterval(function(){
   $('#currentDay').text(currentTime.format('DD MMMM YYYY hh:mm a'))
 }, 1000)
 
-var time = dayjs()
-var currentHour = time.format('hh')
-console.log(currentHour)
+
 
