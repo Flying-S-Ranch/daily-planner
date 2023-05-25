@@ -1,3 +1,16 @@
+var hours = document.querySelectorAll(".time-block");
+console.log(hours[0])
+function whatTime() {
+  for (i = 0; i < hours.length; i++) {
+  var plannerTime = i + 9;
+  if(plannerTime > 12) {
+    plannerTime = plannerTime - 12
+  }
+  console.log(plannerTime)
+}
+}
+whatTime();
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
