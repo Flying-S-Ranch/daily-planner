@@ -27,3 +27,7 @@ setInterval(function(){
   $('#currentDay').text(currentTime.format('DD MMMM YYYY hh:mm a'))
 }, 1000)
 
+var time = dayjs()
+var currentHour = time.format('hh')
+console.log(currentHour)
+
