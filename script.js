@@ -1,4 +1,5 @@
 // DEPENDENCIES
+// see README for credit on how to turn jQuery into an array
 var hours = $(".time-block").toArray();
 // console.log(hours)
 var saveButton = $(".saveBtn").toArray();
@@ -13,6 +14,7 @@ var storedText = $("textarea").toArray();
 // DATA / STATE
 var time = dayjs()
 var currentHour = time.format('HH')
+var currentHour = 14
 var plannerTimes = [09, 10, 11, 12, 13, 14, 15, 16, 17]
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
